@@ -1,15 +1,17 @@
-import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import diff from '../util/diff';
+import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import diff from "../util/diff";
 import {
     MdContentCopy,
     MdReply,
     MdRateReview
-} from 'react-icons/md';
-//import { atomOneDark } from 'react-syntax-highlighter/dist/styles/hljs';
-import 'highlight.js/styles/atom-one-dark.css';
+} from "react-icons/md";
 
-export default (props) => {
+import "highlight.js/styles/atom-one-dark.css";
+
+import { MESSAGE_TYPE } from "../util/constants";
+
+export const MessageContent = (props) => {
 
     const onCopy = () => {
         props.onSetMsg(props.data, 1);
@@ -19,7 +21,7 @@ export default (props) => {
         props.onSetMsg(props.data, 3);
     };
 
-    const isCodeMessage = props.data.type === 1;
+    const isCodeMessage = props.data.type === MESSAGE_TYPE.CODE;
     if (isCodeMessage) {
         const differ = props.data.diff;
         const result = differ ? diff(differ, props.data.message) : props.data.message;
@@ -30,7 +32,7 @@ export default (props) => {
                     useInlineStyles={false}
                     wrapLines={true}
                     //lineProps ={markLine}
-                    language={differ ? 'diff' : props.data.language}
+                    language={differ ? "diff" : props.data.language}
                 //showLineNumbers={true}
                 >
                     {result}
@@ -43,6 +45,7 @@ export default (props) => {
             </div>
         );
     }
+
     return (
         <div className="mes-inner">
             <p className="mes-txt">{props.data.message}</p>

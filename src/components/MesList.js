@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
-import MesContent from './MesContent';
+import { MessageContent } from "./MesContent";
 
-export default (props) => {
+export const MesList = (props) => {
 
     const MesList = useRef(null);
 
@@ -16,9 +16,9 @@ export default (props) => {
             {
                 props.data.map(d => (
                     <div key={d.id} className="mes-item" data-self={d.user.userId === props.user}>
-                        <div className="mes-avator">{d.user.userName[0]}</div>
+                        <div className="mes-avator">{/*d.user.userName.toString()[0]*/}</div>
                         <div className="mes-content">
-                            <MesContent data={d} onSetMsg={props.onSetMsg} />
+                            <MessageContent data={d} onSetMsg={props.onSetMsg} />
                         </div>
                     </div>
                 ))

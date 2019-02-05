@@ -1,13 +1,9 @@
-/**
- * main
- */
-
-import React, { PureComponent } from 'react';
-import MesList from '../com/MesList';
-import MesInput from '../com/MesInput';
+import * as React from 'react';
+import { MesList } from '../components/MesList';
+import { MesInput } from '../components/message-input/MesInput';
 import './index.css';
 
-export default class extends PureComponent {
+export class Conversation extends React.PureComponent {
 
     state = {
         list: [],
