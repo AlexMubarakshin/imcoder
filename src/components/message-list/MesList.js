@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 
-import { MessageContent } from "./MesContent";
+import { MessageContent } from "../message-content/MesContent";
+
+import "./MesList.css";
 
 export const MesList = (props) => {
 
@@ -16,7 +18,7 @@ export const MesList = (props) => {
             {
                 props.data.map(d => (
                     <div key={d.id} className="mes-item" data-self={d.user.userId === props.user}>
-                        <div className="mes-avator">{/*d.user.userName.toString()[0]*/}</div>
+                        <div className="mes-avatar">{/*d.user.userName.toString()[0]*/}</div>
                         <div className="mes-content">
                             <MessageContent data={d} onSetMsg={props.onSetMsg} />
                         </div>

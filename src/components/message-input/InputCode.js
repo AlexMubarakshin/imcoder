@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-    MdCode,
+    MdTextFormat,
     MdSend
 } from "react-icons/md";
 
@@ -68,7 +68,7 @@ export class InputCode extends React.PureComponent {
 
                 <div className="icon-group">
                     <div className="icon-wrap">
-                        <button className="icon-btn"><MdCode /></button>
+                        <button className="icon-btn"><MdTextFormat onClick={this.props.onToggleClick}/></button>
                         <button className="icon-btn" onClick={this.onSend}><MdSend /></button>
                     </div>
                 </div>

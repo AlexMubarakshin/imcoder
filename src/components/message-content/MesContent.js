@@ -1,6 +1,6 @@
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import diff from "../util/diff";
+import diff from "../../util/diff";
 import {
     MdContentCopy,
     MdReply,
@@ -8,8 +8,9 @@ import {
 } from "react-icons/md";
 
 import "highlight.js/styles/atom-one-dark.css";
+import "./MesContent.css";
 
-import { MESSAGE_TYPE } from "../util/constants";
+import { MESSAGE_TYPE } from "../../util/constants";
 
 export const MessageContent = (props) => {
 
@@ -28,12 +29,9 @@ export const MessageContent = (props) => {
         return (
             <div className="mes-inner">
                 <SyntaxHighlighter
-                    //style={atomOneDark} 
                     useInlineStyles={false}
                     wrapLines={true}
-                    //lineProps ={markLine}
                     language={differ ? "diff" : props.data.language}
-                //showLineNumbers={true}
                 >
                     {result}
                 </SyntaxHighlighter>

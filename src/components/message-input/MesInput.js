@@ -2,8 +2,6 @@ import React from 'react';
 
 import { InputCode } from './InputCode';
 
-import { ModeToggle } from "./MesInputModeToggle";
-
 import { InputText } from './InputText';
 import { MESSAGE_TYPE } from '../../util/constants';
 
@@ -20,7 +18,7 @@ export class MesInput extends React.PureComponent {
     }
 
     toggleMode = () => {
-        const nextMode = this.state.mode ===  MESSAGE_TYPE.CODE ? MESSAGE_TYPE.TEXT : MESSAGE_TYPE.CODE;
+        const nextMode = this.state.mode === MESSAGE_TYPE.CODE ? MESSAGE_TYPE.TEXT : MESSAGE_TYPE.CODE;
         this.setInputMode(nextMode)
     }
 
@@ -63,16 +61,15 @@ export class MesInput extends React.PureComponent {
 
         return (
             <div className="mes-input-con" data-code-mode={isCodeMode}>
-                <ModeToggle
-                    isCodeMode={isCodeMode}
-                    onToggleClick={this.toggleMode} />
-
                 <InputText
-                    ref={ref => this.textEditRef = ref} 
+                    onToggleClick={this.toggleMode}
+                    ref={ref => this.textEditRef = ref}
                     sendMessage={this.sendMessage} />
                 <InputCode
+                    onToggleClick={this.toggleMode}
                     ref={ref => this.codeInputRef = ref}
                     sendMessage={this.sendMessage} />
+                {/* </div> */}
             </div>
         )
     }

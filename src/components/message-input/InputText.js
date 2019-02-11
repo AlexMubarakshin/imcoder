@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    MdCode,
     MdSentimentSatisfied,
     MdSend
 } from "react-icons/md";
@@ -7,7 +8,7 @@ import {
 import { MESSAGE_TYPE } from "../../util/constants";
 
 export class InputText extends React.PureComponent {
-    
+
     onPaste = (ev) => {
         ev.preventDefault();
         document.execCommand("insertText", false, ev.clipboardData.getData('text'));
@@ -38,7 +39,6 @@ export class InputText extends React.PureComponent {
     render() {
         return (
             <div className="mes-input-wrap mes-txt-input-wrap">
-                <button className="icon-btn"><MdSentimentSatisfied /></button>
                 <div
                     ref={ref => this.textEditRef = ref}
                     className="mes-input"
@@ -47,7 +47,14 @@ export class InputText extends React.PureComponent {
                     onKeyDown={this.onKeyDown}
                     onPaste={this.onPaste}
                     placeholder="Message..." />
-                <button className="icon-btn" onClick={this.onSendMessage}><MdSend /></button>
+
+
+                <div className="icon-group">
+                    <div className="icon-wrap">
+                        <button className="icon-btn"><MdCode onClick={this.props.onToggleClick} /></button>
+                        <button className="icon-btn" onClick={this.onSendMessage}><MdSend /></button>
+                    </div>
+                </div>
             </div>
         )
     }

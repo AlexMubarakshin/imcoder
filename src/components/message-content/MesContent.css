@@ -1,0 +1,90 @@
+.mes-inner {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.mes-inner>pre {
+    margin: 0 !important;
+    vertical-align: top;
+    min-width: 110px;
+    display: inline-block;
+    overflow: auto;
+    border-radius: 0 10px 10px 10px !important;
+    padding: 10px 15px !important;
+    box-sizing: border-box;
+    width: 100%;
+    background: #282c34;
+}
+
+.mes-item[data-self=true] .mes-inner>pre {
+    border-radius: 10px 10px 0 10px !important;
+    text-align: left;
+}
+
+.mes-inner>pre .hljs-addition,
+.mes-inner>pre .hljs-deletion {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 100%;
+}
+
+.mes-inner>pre .hljs-addition:before,
+.mes-inner>pre .hljs-deletion:before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    right: -15px;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: -1;
+    opacity: .05;
+}
+
+.mes-action {
+    position: absolute;
+    white-space: nowrap;
+    box-sizing: border-box;
+    color: var(--contentBgColor);
+    right: 0;
+    padding-bottom: 10px;
+    top: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: .3s;
+}
+
+.mes-item[data-self=true] .mes-action {
+    display: none;
+}
+
+.mes-action-btn {
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
+    opacity: .6;
+    background: var(--mesInputFontColor);
+    transition: .3s;
+}
+
+.mes-action-btn:hover {
+    opacity: 1;
+    color: var(--theme);
+}
+
+.mes-txt {
+    margin: 0;
+    text-align: left;
+    display: inline-block;
+    border-radius: 0 10px 10px 10px !important;
+    background: var(--themeColor);
+    padding: 10px 15px;
+    white-space: pre-wrap;
+}

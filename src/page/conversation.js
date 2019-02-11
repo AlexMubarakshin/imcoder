@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MesList } from '../components/MesList';
+import { MesList } from '../components/message-list/MesList';
 import { MesInput } from '../components/message-input/MesInput';
 import './index.css';
 
